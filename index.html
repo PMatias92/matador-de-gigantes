@@ -1849,6 +1849,7 @@ window.partirIncursao=function(prova){
     P.dias+" dia(s) de caminho.");
   G.rel=G.rel||[]; linhas.forEach(function(l){G.rel.unshift(l)});
   G.incursaoMarcada=G.dia;
+  G.viagemDias=P.dias||0;   /* a Torre paga melhor por incursão longa */
   var eProva = !!prova || ehProva();
   if(eProva)G.provaMarcada=G.dia;
   PLANO={andar:null,dias:null,levar:null,aberto:false};
@@ -2473,7 +2474,7 @@ var OFICIO_LUGAR={fazendeiro:"campos",pastor:"campos",pescador:"cais",cozinheiro
   "tecelão":"tear",mineiro:"mina",carroceiro:"cocheira","boticário":"enfermaria"};
 
 /* ---------- estado ---------- */
-var G={iniciado:false,foco:null,estoque:{},provaResolvida:null,dia:1,andar:1,sup:16,mat:6,ess:300,pity3Plus:0,multConsumo:1,forjados:0,forjaDia:0,relacoes:{},intencoes:[],socialCd:{},promessas:[],crises:[],criseAtiva:null,rebCd:{},politicaHist:[],protecaoAte:0,sugestoes:[],monstrosMortos:[],recompensas:[],escolhasDoDia:[],subidas:[],instal:{},obras:[],ascensao:null,lideranca:{},papelDesde:{},casa:[],cemiterio:[],esquadra:[],aba:"esquadra",pulados:0,rel:[]};
+var G={iniciado:false,foco:null,viagemDias:0,estoque:{},provaResolvida:null,dia:1,andar:1,sup:16,mat:6,ess:300,pity3Plus:0,multConsumo:1,forjados:0,forjaDia:0,relacoes:{},intencoes:[],socialCd:{},promessas:[],crises:[],criseAtiva:null,rebCd:{},politicaHist:[],protecaoAte:0,sugestoes:[],monstrosMortos:[],recompensas:[],escolhasDoDia:[],subidas:[],instal:{},obras:[],ascensao:null,lideranca:{},papelDesde:{},casa:[],cemiterio:[],esquadra:[],aba:"esquadra",pulados:0,rel:[]};
 function diaCiclo(){ return diaDoCiclo(G.dia) }
 /* a incursão deixa de acontecer sozinha: o Comandante marca a data */
 function ehIncursao(){ return CONFIG.incursao.automatica ? (G.dia%7===0) : (G.incursaoMarcada===G.dia) }
@@ -2498,6 +2499,7 @@ function provaHTML(){
   '</div>';
 }
 window.encararProva=function(){
+  G.viagemDias=0;   /* a Prova acontece na Casa, sem viagem */
   /* esquadra vazia não impede a Prova: sobe quem estiver vivo */
   if(!G.esquadra.filter(function(h){return h.vivo}).length){
     G.esquadra=vivos().slice(0,4);
@@ -3390,7 +3392,7 @@ function serializa(){
     format:SAVE_FORMAT, version:SAVE_VERSION, exportedAt:new Date().toISOString(),
     game:{
       dia:G.dia, andar:G.andar, mant:G.sup, mat:G.mat,
-      estoque:G.estoque||{}, provaResolvida:G.provaResolvida||null, foco:G.foco||null,
+      estoque:G.estoque||{}, provaResolvida:G.provaResolvida||null, foco:G.foco||null, viagemDias:G.viagemDias||0,
       forjados:G.forjados||0, forjaDia:G.forjaDia||0, pulados:G.pulados||0,
       casa:G.casa.map(lm), cemiterio:(G.cemiterio||[]).map(lm),
       esquadra:G.esquadra.map(function(x){return x.id}),
@@ -3587,6 +3589,7 @@ function migraV6V7(s){
   if(g.iniciado===undefined)g.iniciado=true;   /* saves antigos ja estavam em jogo */
   if(g.estoque==null)g.estoque={};
   if(g.foco===undefined)g.foco=null;
+  if(g.viagemDias==null)g.viagemDias=0;
   ["casa","cemiterio"].forEach(function(L){
     (Array.isArray(g[L])?g[L]:[]).forEach(function(x){ if(!x.peca)x.peca=escolhePeca() });
   });
@@ -3738,7 +3741,7 @@ function importar(texto){
     var bruto=JSON.parse(texto);
     var res=validaSave(bruto), g=res.save.game;
     G.iniciado=true; G.dia=g.dia; G.andar=g.andar;
-    G.estoque=g.estoque||{}; G.provaResolvida=g.provaResolvida||null; G.foco=g.foco||null;
+    G.estoque=g.estoque||{}; G.provaResolvida=g.provaResolvida||null; G.foco=g.foco||null; G.viagemDias=g.viagemDias||0;
     G.sup=num(g.sup,0,999999,CONFIG.recursos.suprimentosIniciais);
     G.mat=num(g.mat,0,999999,0);
     G.ess=num(g.ess,0,9999999,0);
@@ -4474,7 +4477,7 @@ window.balNext=function(){
 };
 window.balFim=function(){
   BAL={ativo:false,fase:0,idx:0,pulados:0,fim:null};
-  G={iniciado:true,foco:null,estoque:{},provaResolvida:null,dia:1,andar:1,sup:16,mat:6,ess:300,pity3Plus:0,multConsumo:1,forjados:0,forjaDia:0,relacoes:{},intencoes:[],socialCd:{},promessas:[],crises:[],criseAtiva:null,rebCd:{},politicaHist:[],protecaoAte:0,sugestoes:[],monstrosMortos:[],recompensas:[],escolhasDoDia:[],subidas:[],instal:{},obras:[],ascensao:null,lideranca:{},papelDesde:{},
+  G={iniciado:true,foco:null,viagemDias:0,estoque:{},provaResolvida:null,dia:1,andar:1,sup:16,mat:6,ess:300,pity3Plus:0,multConsumo:1,forjados:0,forjaDia:0,relacoes:{},intencoes:[],socialCd:{},promessas:[],crises:[],criseAtiva:null,rebCd:{},politicaHist:[],protecaoAte:0,sugestoes:[],monstrosMortos:[],recompensas:[],escolhasDoDia:[],subidas:[],instal:{},obras:[],ascensao:null,lideranca:{},papelDesde:{},
      casa:[],cemiterio:[],esquadra:[],aba:"esquadra",pulados:0,rel:[]};
   USADOS={};FICHA=null;C=null;REL_UI={heroi:null,filtro:"todas"};
   FORJA={c:null,h:null,foco:"ataque",res:null,conf:false};
@@ -7649,17 +7652,42 @@ function fim(){
 }
 
 /* ---------- balanço ---------- */
+/* Subir a Torre já ensina alguma coisa. Vale para quem voltou e para quem
+   morreu lá em cima -- este último não recebe, mas o cálculo é o mesmo. */
+function xpDeParticipacao(prova,dias){
+  return Math.max(4, Math.round((6+G.andar*3)*(prova?2:1)+Math.max(0,dias-1)*2));
+}
 function balanco(venceu){
   var mortos=G.esquadra.filter(function(h){return !h.vivo});
   G.esquadra.forEach(function(h){if(h.vivo)h.subiu++});
   var eraProvaPre=ehProva(); G.essDada=false;
+  var dias=G.viagemDias||0;
+  var xpP=xpDeParticipacao(eraProvaPre,dias);
+  var subiram=[];
+  G.esquadra.forEach(function(h){
+    if(!h.vivo)return;
+    var antes=h.level||1;
+    daXP(h,xpP,"combate");
+    if((h.level||1)>antes)subiram.push(h.nome);
+  });
+  if(G.esquadra.filter(function(h){return h.vivo}).length){
+    G.rel=G.rel||[];
+    G.rel.unshift("Quem subiu recebeu "+xpP+" XP pela incursão"+
+      (dias>1?" de "+dias+" dias":"")+"."+(subiram.length?" Subiu de nível: "+subiram.join(", ")+".":""));
+  }
   var mortos=G.esquadra.filter(function(x){return !x.vivo}).length;
   vivos().forEach(function(x){
     if(venceu&&!G.essDada){
       var R=CONFIG.torre.recompensa;
-      var ganho=R.base+G.andar*R.porProfundidade+(eraProvaPre?R.porGigante:0);
+      var base=R.base+G.andar*R.porProfundidade+(eraProvaPre?R.porGigante:0);
+      /* cada dia de viagem além do primeiro rende 25% a mais: incursão longa
+         custa comida e risco, então tem que pagar melhor */
+      var mult=1+Math.max(0,dias-1)*0.25;
+      var ganho=Math.round(base*mult);
       G.ess=(G.ess||0)+ganho; G.essDada=true;
-      G.rel=G.rel||[]; G.rel.unshift("A torre devolveu "+ganho+" de Essência.");
+      G.rel=G.rel||[];
+      G.rel.unshift("A torre devolveu "+ganho+" de Essência"+
+        (mult>1?" ("+base+" mais "+Math.round((mult-1)*100)+"% por "+dias+" dias fora)":"")+".");
     }
     if(venceu){ daMoral(x,12);
       if(G.esquadra.indexOf(x)>=0){ if(eraProvaPre)ST(x).provas++; else ST(x).incursoes++;
