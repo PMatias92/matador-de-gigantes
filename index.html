@@ -983,6 +983,121 @@ body.pre .side,body.pre .top{display:none}
 .rlseta-medo{fill:#6b4b8a}
 .rlseta-neutra{fill:var(--border)}
 @media (max-width:700px){.eqslots{grid-template-columns:1fr}}
+
+/* ========== 15. SALÃO DE COMANDO ========== */
+.cmdtop{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:12px 16px;margin-bottom:14px}
+.cmdtop-d{font-family:var(--serif);font-size:15px;color:var(--text)}
+.cmdtop-p{font-size:12px;color:var(--gold);margin-top:2px}
+.cmdciclo{margin-bottom:18px}
+
+.cmdind{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+.indc{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--border);
+  border-radius:var(--r);padding:10px 12px}
+.indr{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)}
+.indv{font-family:var(--display);font-size:21px;color:var(--text);margin-top:3px}
+.indc2{font-size:11px;color:var(--text-muted);margin-top:2px}
+.indc.tone-ok{border-left-color:var(--health)}
+.indc.tone-ok .indv{color:var(--health)}
+.indc.tone-warn{border-left-color:var(--gold-dark)}
+.indc.tone-warn .indv{color:var(--gold)}
+.indc.tone-bad{border-left-color:var(--crimson)}
+.indc.tone-bad .indv{color:var(--danger)}
+.indc.tone-neu{border-left-color:var(--border)}
+@media(max-width:900px){.cmdind{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.cmdind{grid-template-columns:1fr 1fr}}
+
+.cmdslots{display:grid;grid-template-columns:repeat(4,1fr) 210px;gap:12px;margin-bottom:10px}
+@media(max-width:1180px){.cmdslots{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cmdslots{grid-template-columns:1fr}}
+.slotc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:13px;min-height:150px}
+.slotc.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;border-style:dashed;transition:border-color .15s,background .15s}
+.slotc.empty:hover,.slotc.empty.open{border-color:var(--gold-dark);background:var(--surface-hover)}
+.slotc.full{border-color:var(--gold-dark);background:var(--surface-raised);position:relative}
+.slotc.full::before,.slotc.full::after{content:"";position:absolute;width:9px;height:9px;
+  border-color:var(--gold);border-style:solid}
+.slotc.full::before{top:-1px;left:-1px;border-width:1px 0 0 1px}
+.slotc.full::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+.slotc-h{display:flex;gap:10px;margin-bottom:9px}
+.slotc-h .rtt{width:44px;height:66px;flex:none}
+.slotc-n{font-family:var(--serif);font-size:16px;line-height:1.15}
+.slotc-m{font-size:11px;color:var(--text-muted);margin-top:2px}
+.hpbar{height:6px;background:var(--background);border:1px solid var(--border);border-radius:3px;
+  overflow:hidden;margin-bottom:3px}
+.hpbar i{display:block;height:100%}
+.slotc-hp span{font-size:11px;color:var(--text-muted)}
+.slotc-stats{display:flex;gap:8px;margin:8px 0}
+.slotc-stats div{text-align:center;flex:1}
+.slotc-stats span{display:block;font-size:9px;letter-spacing:.1em;color:var(--text-faint)}
+.slotc-stats b{display:block;font-size:14px;color:var(--gold-light);font-weight:600}
+.slotc-magia{font-size:11px;color:var(--text-muted);margin-bottom:6px}
+.slotc-sit{font-size:11px;color:var(--text-muted);padding:6px 0;border-top:1px solid var(--border-soft);margin-bottom:9px}
+.slotc-sit.warn{color:var(--danger)}
+.slotc-sit.ok{color:var(--health)}
+.slotc-acts{display:flex;gap:6px}
+.slotc-acts button{flex:1;padding:6px 8px;font-size:11px;min-height:0}
+.incbox{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:13px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px}
+.incbox .ik{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)}
+.incbox .iv{font-family:var(--display);font-size:15px}
+.incbox .iv.ok{color:var(--health)}
+.incbox .iv.bad{color:var(--danger)}
+.incbox button{width:100%}
+.picker{grid-column:1/-1;background:var(--surface);border:1px solid var(--gold-dark);border-radius:var(--r);
+  padding:10px;display:flex;flex-wrap:wrap;gap:8px}
+.pick{display:flex;gap:8px;align-items:center;background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--r);padding:6px 9px;cursor:pointer;min-width:160px}
+.pick:hover{border-color:var(--gold)}
+.pick .rtt{width:32px;height:48px;flex:none}
+.pick .sn{font-family:var(--serif);font-size:13px}
+.pick .sm{font-size:10px;color:var(--text-muted)}
+.cmdsummary{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--text-muted);
+  margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.cmdsummary b{color:var(--text)}
+.cmdsummary .al{color:var(--danger)}
+
+.cmdgrid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:900px){.cmdgrid2{grid-template-columns:1fr}}
+.sitp .stitle{font-family:var(--display);font-weight:600;font-size:14px;color:var(--gold);
+  letter-spacing:.04em;margin-bottom:10px}
+.sitrow{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:6px 0;
+  border-bottom:1px solid var(--border-soft)}
+.sitrow span{color:var(--text-muted)}
+.sitrow b{color:var(--text);font-weight:600;text-align:right}
+.sitalerts{margin-top:10px}
+.alerta{font-size:12px;color:var(--gold);padding:4px 0}
+
+.hjgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:8px}
+.hjcard{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--border);
+  border-radius:var(--r);padding:13px}
+.hjcard.combate{border-left-color:var(--gold)}
+.hjcard.paralisado{border-left-color:var(--crimson)}
+.hjcard.recusada{border-left-color:var(--crimson-light)}
+.hjcard.impossivel{border-left-color:#7a4a2c}
+.hjcard.aceita{border-left-color:var(--health)}
+.hjh{display:flex;gap:10px;margin-bottom:8px}
+.hjh .rtt{width:40px;height:60px;flex:none}
+.hjn{font-family:var(--serif);font-size:15px}
+.hjm{font-size:11px;color:var(--text-muted)}
+.hjrow{display:flex;justify-content:space-between;gap:8px;font-size:11px;padding:3px 0;color:var(--text-muted)}
+.hjrow b{color:var(--text);text-align:right;font-weight:500}
+.hjfrase{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--text-muted);
+  margin:7px 0;line-height:1.4}
+.hjtag{font-size:10.5px;margin-top:5px}
+.hjacts{display:flex;gap:6px;margin-top:10px}
+.hjacts button{flex:1;font-size:11px;padding:6px 8px;min-height:0}
+
+.cronica-list{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.critem{background:var(--surface);border:1px solid var(--border-soft);border-left:3px solid var(--border);
+  border-radius:var(--r);padding:8px 12px;font-size:12.5px;color:var(--text-muted)}
+.critag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);
+  border:1px solid var(--border);border-radius:8px;padding:1px 6px;margin-right:7px}
+
+.cmdbar{position:sticky;bottom:0;display:flex;gap:11px;justify-content:flex-end;
+  background:var(--surface);border-top:1px solid var(--border);padding:14px 4px;margin-top:26px}
+@media(max-width:640px){.cmdbar{flex-wrap:wrap;justify-content:stretch}.cmdbar button{flex:1}}
 </style>
 </head>
 <body>
@@ -1403,8 +1518,8 @@ function consomeForja(cid,hid,focoId){
     if(F.id==="ataque"){e.ataque++}
     else if(F.id==="defesa"){e.defesa++}
     else if(F.id==="vida"){e.pvMax+=3;e.pv+=3}
-    else if(F.id==="movimento"){e.movimento++}
-    else if(F.id==="alcance"){e.alcance++}
+    else if(F.id==="movimento"){e.movimento++;e.movDist=e.movimento}
+    else if(F.id==="alcance"){e.alcance++;e.atqDist=e.alcance}
   }
   if(passos)ganhos.push((F.id==="vida"?"+"+(passos*3)+" de PV m\u00e1ximo":"+"+passos+" de "+F.nome));
   // uma habilidade pode passar de um corpo para o outro
@@ -1555,7 +1670,7 @@ function ciclosDecorridos(){
 function ehTutorial(){ return G.dia<=fimDoCiclo(1) }
 /* uma orientação por dia até a Prova de estreia, no 31 de março */
 var TUTORIAL=[
- ["A Casa e a Esquadra","Os heróis vivem na Casa. Só quatro sobem por vez, e são os que você põe nas vagas acima. Clique numa vaga para escolher."],
+ ["A Casa e o Comando","Os heróis vivem na Casa. Só quatro sobem por vez, e são os que você põe nas vagas da Formação de Combate. Clique numa vaga vazia para escolher."],
  ["A Torre devolve gente","A aba Torre invoca por conta própria e gasta Essência. Quem vem, vem: você não escolhe o rosto nem o ofício."],
  ["Suprimentos são o relógio","Cada dia consome comida por herói vivo. A aba Lugares põe gente para produzir. Sem suprimento, a Casa passa fome e guarda rancor."],
  ["Incursão é escolha sua","Ninguém te obriga a subir. A aba Incursão mostra o andar, os dias de viagem e quanto levar. Levar pouco machuca a moral."],
@@ -2674,7 +2789,7 @@ var ICO={
  equipamentos:'<path d="M6 3l6 4 6-4M6 3v9l6 9 6-9V3"/><path d="M6 3l6 4 6-4"/>',
  cemiterio:'<path d="M8 21V10a4 4 0 018 0v11z"/><path d="M12 13V8M10 10h4"/>'
 };
-var ABAS=[["esquadra","Esquadra"],["dormitorio","Dormitório"],["conselho","Conselho"],
+var ABAS=[["esquadra","Comando"],["dormitorio","Dormitório"],["conselho","Conselho"],
           ["casa","Lugares"],["patio","Pátio"],["incursao","Incursão"],["torre","A Torre"],
           ["relacoes","Relações"],["loja","Loja"],["equipamentos","Equipamentos"],["forja","Forja"],
           ["partida","Salvar Partida"],["cemiterio","Cemitério"]];
@@ -2702,6 +2817,10 @@ function telaCasa(){
   if(BAL.ativo){app(balancoHTML());return ligaBalanco()}
   if(provaPendente()){ return app(provaHTML()) }
   var t="";
+  /* a ficha agora pode ser aberta a partir de qualquer aba (Salão de Comando
+     incluído) — mostrar antes do roteamento por aba faz "Voltar" devolver
+     exatamente para a tela de onde a ficha foi aberta */
+  if(FICHA)return app(t+fichaHTML());
   if(G.aba==="cemiterio")return app(t+cemiterioHTML());
   if(G.aba==="dormitorio")return app(t+(FICHA?fichaHTML():dormitorioHTML()));
   if(G.aba==="casa")return app(t+lugaresHTML());
@@ -2750,96 +2869,428 @@ function ligaInicio(){
   };
 }
 window.novoJogo=function(){ G.iniciado=true; G.aba="esquadra"; telaCasa() };
+/* ============ SALÃO DE COMANDO (antiga "Esquadra") ============
+   A rota interna continua "esquadra" (G.aba, salvamento, ABAS[0][0]) para não
+   quebrar partidas e referências existentes — só o rótulo visível virou
+   "Comando" e o título da página virou "Salão de Comando". Esta tela deixou
+   de mostrar só os quatro combatentes: agora reúne o ciclo, os indicadores
+   da Casa, a Formação de Combate, a Intenção do Comandante, a Situação da
+   Casa, "A Casa Hoje" e a Crônica da Casa. Nenhum dado novo é inventado —
+   tudo abaixo lê estruturas que já existiam (G.sup/mat/ess, estadoEstoque(),
+   estadoTensao(), G.criseAtiva, G.obras, G.sugestoes, G.escolhasDoDia, G.rel
+   etc.); estado de interface (filtros, "ver ciclo", o seletor de vaga) fica
+   em SALAO, que é transiente e não é salvo — não precisa ser, é só interface. */
+var SALAO={verCiclo:false, filtroCasa:"todos", filtroCronica:"todos", cronicaTudo:false, escalando:null};
+
 function esquadraHTML(){
-  var dc=diaCiclo();
-  // vagas
-  var slots="";
-  for(var i=0;i<4;i++){
-    var s=G.esquadra[i];
-    slots += s
-      ? '<div class="slot full" role="button" tabindex="0" onclick="tira('+s.id+')" '+
-        'onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();tira('+s.id+')}" '+
-        'aria-label="Tirar '+esc(s.nome)+' da esquadra">'+retrato(s)+
-        '<div><div class="sn">'+esc(s.nome)+'</div>'+
-        '<div class="sm">Ataque '+s.ataque+' · Defesa '+s.defesa+' · Alcance '+s.alcance+'</div>'+
-        '<div class="sm" style="color:var(--health)">'+s.pv+'/'+s.pvMax+' PV</div>'+
-        '<div class="sq">'+esc(leituraAnimo(s).split(" — ")[0])+'</div></div></div>'
-      : '<div class="slot" role="button" tabindex="0" aria-label="Vaga '+(i+1)+' vazia">'+
-        '<div class="mais" aria-hidden="true">+</div><div class="vago">Vaga '+(i+1)+'</div></div>';
-  }
-  // calendário do ciclo, com as datas reais da campanha
-  var cal="", ini=inicioDoCiclo(G.dia), tam=tamCiclo(G.dia), base=ini-1;
+  var eventos=intencoesHTML();
+  return '<h1 class="pg">'+pena("g")+'Salão de Comando</h1>'+
+    cabecalhoCicloHTML()+
+    indicadoresHTML()+
+    tutorialHTML()+
+    '<h2>Formação de Combate</h2>'+
+    formacaoHTML()+
+    '<div class="cmdgrid2">'+intencaoComandanteHTML()+situacaoDaCasaHTML()+'</div>'+
+    (eventos?'<h2>Pedem sua resposta</h2>'+eventos:'')+
+    casaHojeHTML()+
+    cronicaCasaHTML()+
+    barraFixaHTML();
+}
+
+/* ---------- 1/2. cabeçalho do ciclo + indicadores da Casa ---------- */
+function cabecalhoCicloHTML(){
+  var dc=diaCiclo(), tam=tamCiclo(G.dia), faltam=fimDoCiclo(G.dia)-G.dia;
+  var prox = ehProva() ? "Hoje é a Prova do ciclo."
+           : ehIncursao() ? "Hoje há incursão marcada."
+           : faltam===1 ? "Amanhã: Prova do Ciclo."
+           : "Prova do ciclo em "+faltam+" dia(s).";
+  return '<div class="cmdtop">'+
+      '<div><div class="cmdtop-d">'+esc(dataTexto(G.dia))+' · dia '+dc+'/'+tam+' · andar '+G.andar+'</div>'+
+      '<div class="cmdtop-p">'+esc(prox)+'</div></div>'+
+      '<button class="mini" onclick="toggleCiclo()">'+(SALAO.verCiclo?"Fechar ciclo":"Ver ciclo")+'</button>'+
+    '</div>'+
+    (SALAO.verCiclo?cicloPainelHTML():'');
+}
+function cicloPainelHTML(){
+  var dc=diaCiclo(), cal="", ini=inicioDoCiclo(G.dia), tam=tamCiclo(G.dia), base=ini-1;
   for(var d=1;d<=tam;d++){
     var D=dataDaCampanha(base+d);
     var c=(d===tam?"p":"");
     if(d<dc)c+=" ido";
     if(d===dc)c+=" hoje";
-    if(D.dia===1)c+=" m1";      // primeiro dia de um mês novo
+    if(D.dia===1)c+=" m1";
     var rot=d===tam?"Prova":"Preparação";
     cal+='<div class="'+c.trim()+'" title="'+dataTexto(base+d)+' — '+rot+(d===dc?", hoje":"")+'"'+
          (d===dc?' aria-current="date"':'')+'>'+D.dia+'</div>';
   }
   var faixa=dataTexto(ini)+" a "+dataTexto(ini+tam-1);
-  var faltam=fimDoCiclo(G.dia)-G.dia;   /* dias até a Prova; incursão é escolha do Comandante */
-  var tamC=tamCiclo(G.dia);
-  var aviso = ehProva() ? "Hoje é a Prova. O último dia de "+dataDaCampanha(G.dia).nomeMes+"."
-            : ehIncursao() ? "Hoje há incursão."
-            : faltam===1 ? "Amanhã é a Prova."
-            : "A Prova é em "+faltam+" dias. Até lá, subir é escolha sua.";
-  // linhas de herói: identidade, situação, combate
-  var st=function(k,ico,v,cls){
-    return '<div class="hstat '+(cls||"")+'"><div class="k"><svg viewBox="0 0 24 24" aria-hidden="true">'+
-      ico+'</svg>'+k+'</div><div class="v">'+v+'</div></div>';
-  };
-  var I={atq:'<path d="M5 19l7-7M14 10l5-5M14 5h5v5"/>',
-         def:'<path d="M12 3l7 3v5c0 4-3 7-7 9-4-2-7-5-7-9V6z"/>',
-         alc:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
-         pv:'<path d="M12 20s-7-4.4-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.6-7 9-7 9z"/>'};
-  var linhas=vivos().map(function(x){
-    var on=G.esquadra.indexOf(x)>=0, busy=!!x.tarefa, f=ferido(x);
-    var dm=dominante(x);
-    var sit = busy ? "Trabalha "+noLugar(x.tarefa)
-            : (x.quer==="patio" ? "Na Casa, quer treinar" : "Na Casa, quer ir "+noLugar(x.quer));
-    return '<div class="hrow'+(on?" on":"")+(f?" ferido":"")+(busy&&!on?" busy":"")+
-      '" role="button" tabindex="0" onclick="pega('+x.id+')" '+
-      'onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();pega('+x.id+')}" '+
-      'aria-label="'+esc(x.nome)+', '+esc(x.prof)+'">'+
-      '<div class="hid">'+retrato(x)+
-        '<div style="min-width:0"><div class="nm">'+pena()+esc(x.nome)+'</div>'+
-        '<div class="mt">'+esc(x.cod)+' · <b>'+esc(x.prof)+'</b> · '+
-          esc(x.magia?"Magia de "+x.afinidade:"Aura de "+x.afinidade)+' · '+esc(x.era)+'</div></div></div>'+
-      '<div class="hsit"><b>'+esc(dm?EMO_POR_ID[dm.type].nome:"Estável")+'</b>'+esc(sit)+'</div>'+
-      '<div class="hstats">'+
-        st("Ataque",I.atq,x.ataque)+st("Defesa",I.def,x.defesa)+
-        st("Alcance",I.alc,x.alcance)+st("PV",I.pv,x.pv+"/"+x.pvMax,"pv"+(f?" f":""))+
-      '</div></div>';
-  }).join("");
-  var acao = '<button class="prim" onclick="passarDia()">Passar o dia'+pena()+'</button>'+
-    '<button onclick="aba(\'incursao\')">Preparar incursão</button>';
-  var eventos = intencoesHTML();
-  var diario = G.rel.length
-    ? '<div class="diario"><b>Ontem na Casa</b>'+
-      G.rel.map(function(l){return "<p>· "+esc(l)+"</p>"}).join("")+'</div>' : '';
-  return '<h1 class="pg">'+pena("g")+'Esquadra</h1>'+
-    '<p class="note" style="margin-bottom:20px">'+dataTexto(G.dia)+' · semana '+Math.ceil(dc/7)+
-      ' · dia '+dc+' de 28 · andar '+G.andar+' — '+esc(aviso)+'</p>'+
-    '<div class="slots">'+slots+'</div>'+
-    tutorialHTML()+
-    '<h2>Calendário do ciclo</h2>'+
-    '<p class="note" style="margin:-6px 0 10px">'+esc(faixa)+'</p>'+
+  return '<div class="panel cmdciclo">'+
+    '<p class="note" style="margin:0 0 10px">'+esc(faixa)+'</p>'+
     '<div class="cal">'+cal+'</div>'+
     '<div class="legenda">'+
       '<span><i style="border-color:var(--gold-light);background:var(--gold)"></i>Hoje</span>'+
       '<span><i style="border-color:var(--gold-dark)"></i>Prova (fim do ciclo)</span>'+
       '<span><i style="border-left:2px solid var(--gold-dark);border-color:var(--border-soft)"></i>Vira o mês</span>'+
       '<span><i style="border-color:var(--border-soft);opacity:.4"></i>Dia concluído</span></div>'+
-    '</div>'+focoHTML()+'</div>'+
-    (eventos?'<h2>Pedem sua resposta</h2>'+eventos:'')+escolhasHTML()+
-    '<h2>Heróis na Casa ('+vivos().length+')</h2>'+linhas+
-    '<div class="acts">'+
-      '<span class="note">A Casa come '+vivos().length+' por dia. Quem trabalha não sobe.</span>'+
-      '<span class="dir"><button onclick="aba(\'torre\')">Ir à Torre</button>'+acao+'</span></div>'+
-    diario;
+  '</div>';
+}
+window.toggleCiclo=function(){SALAO.verCiclo=!SALAO.verCiclo;telaCasa()};
+
+function pressaoDaCasa(){
+  var cri=G.criseAtiva;
+  if(!cri)return {pct:0, rot:"Estável", cor:"var(--text-muted)", tom:"ok"};
+  var E=ESTAGIOS[cri.stage];
+  return {pct:cri.pressure||0, rot:E.nome, cor:E.cor, tom:cri.stage>=4?"bad":cri.stage>=2?"warn":"neu"};
+}
+function indicadoresHTML(){
+  var E=estadoEstoque(), nec=necessidades(), P=pressaoDaCasa();
+  var nFeridos=vivos().filter(ferido).length;
+  var card=function(rot,val,cond,tom){
+    return '<div class="indc tone-'+tom+'"><div class="indr">'+esc(rot)+'</div>'+
+      '<div class="indv">'+val+'</div>'+(cond?'<div class="indc2">'+esc(cond)+'</div>':'')+'</div>';
+  };
+  var tomSup = E.id==="confortavel"?"ok":E.id==="baixo"?"neu":E.id==="racionamento"?"warn":"bad";
+  var tomMat = nec.materiais==="baixo"?"warn":"neu";
+  var tomFer = nFeridos===0?"ok":nFeridos===1?"warn":"bad";
+  return '<div class="cmdind">'+
+    card("Suprimentos", Math.round((G.sup||0)*10)/10, E.rot, tomSup)+
+    card("Materiais", G.mat||0, nec.materiais==="baixo"?"Baixo":"Estável", tomMat)+
+    card("Essência", G.ess||0, "Reserva atual", "neu")+
+    card("Pressão", P.pct+"%", P.rot, P.tom)+
+    card("Feridos", nFeridos, nFeridos?("de "+vivos().length+" na Casa"):"Nenhum", tomFer)+
+  '</div>';
+}
+
+/* ---------- 3. Formação de Combate ---------- */
+function emoBadge(x){
+  var d=dominante(x);
+  if(!d)return {nome:"Estável", cor:"var(--text-muted)"};
+  var E=EMO_POR_ID[d.type];
+  var cor = E.categoria==="positiva"?"var(--health)":E.categoria==="negativa"?"var(--danger)":"var(--text-muted)";
+  return {nome:E.nome, cor:cor, causa:d.cause.text};
+}
+function situacaoRelevante(x){
+  if(x.rebelado||x.recusa)return {txt:"Recusa-se a servir.", cls:"warn"};
+  if(ferido(x))return {txt:"Ferido — "+x.pv+"/"+x.pvMax+" PV.", cls:"warn"};
+  var C=comprometido(x);
+  if(C){var A=ATIV_POR_ID[C.ativId];return {txt:"Ainda comprometido com "+(A?A.nome.toLowerCase():"uma tarefa")+".", cls:""};}
+  return {txt:"Pronto para o combate.", cls:"ok"};
+}
+function slotCheiaHTML(s){
+  var emo=emoBadge(s), sitr=situacaoRelevante(s);
+  var pct=Math.max(0,Math.min(100,Math.round(s.pv/s.pvMax*100)));
+  return '<div class="slotc full">'+
+    '<div class="slotc-h">'+retrato(s)+
+      '<div style="min-width:0"><div class="slotc-n">'+esc(s.nome)+'</div>'+
+      '<div class="slotc-m">Nv. '+(s.level||1)+' · '+esc(s.prof)+'</div>'+
+      '<div class="slotc-m" style="color:'+emo.cor+'">'+esc(emo.nome)+'</div></div></div>'+
+    '<div class="slotc-hp"><div class="hpbar"><i style="width:'+pct+'%;background:'+
+      (ferido(s)?"var(--danger)":"var(--health)")+'"></i></div><span>'+s.pv+'/'+s.pvMax+' PV</span></div>'+
+    '<div class="slotc-stats">'+
+      '<div><span>ATQ</span><b>'+s.ataque+'</b></div>'+
+      '<div><span>DEF</span><b>'+s.defesa+'</b></div>'+
+      '<div><span>ALC</span><b>'+s.alcance+'</b></div>'+
+      '<div><span>MOV</span><b>'+s.movimento+'</b></div>'+
+    '</div>'+
+    '<div class="slotc-magia">'+esc(s.magia?"Magia de "+s.afinidade:"Aura de "+s.afinidade)+'</div>'+
+    '<div class="slotc-sit '+sitr.cls+'">'+esc(sitr.txt)+'</div>'+
+    '<div class="slotc-acts"><button onclick="verFicha('+s.id+')">Ver ficha</button>'+
+      '<button onclick="tira('+s.id+')">Retirar</button></div>'+
+  '</div>';
+}
+function slotVaziaHTML(i){
+  var aberto=SALAO.escalando===i;
+  return '<div class="slotc empty'+(aberto?" open":"")+'" role="button" tabindex="0" '+
+    'onclick="abreEscolhaVaga('+i+')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();abreEscolhaVaga('+i+')}" '+
+    'aria-label="Vaga '+(i+1)+' vazia, escolher herói">'+
+    '<div class="mais" aria-hidden="true">+</div><div class="vago">Vaga '+(i+1)+'</div>'+
+    '<div class="vago" style="font-size:10px">Escolher herói</div></div>';
+}
+function pickerHTML(candidatos){
+  return '<div class="picker">'+
+    (candidatos.length? candidatos.map(function(x){
+      var f=ferido(x);
+      return '<div class="pick" role="button" tabindex="0" onclick="escalarHeroi('+x.id+')">'+retrato(x)+
+        '<div><div class="sn">'+esc(x.nome)+'</div><div class="sm">Nv. '+(x.level||1)+' · '+esc(x.prof)+
+        (f?' · <span style="color:var(--danger)">ferido</span>':'')+'</div></div></div>';
+    }).join("") : '<p class="note">Não há mais ninguém disponível na Casa agora.</p>')+
+  '</div>';
+}
+window.abreEscolhaVaga=function(i){SALAO.escalando=(SALAO.escalando===i?null:i);telaCasa()};
+window.escalarHeroi=function(id){pega(id);SALAO.escalando=null;telaCasa()};
+function botaoPrepararIncursaoHTML(){
+  var erro=podePartir();
+  return '<button'+(erro?' disabled title="'+esc(erro)+'"':'')+' onclick="aba(\'incursao\')">Preparar incursão</button>';
+}
+function incursaoStatusHTML(){
+  var erro=podePartir();
+  return '<div class="incbox">'+
+    '<div class="ik">Próxima incursão</div>'+
+    '<div class="iv '+(erro?"bad":"ok")+'">'+(erro?"Não preparada":"Pronta para partir")+'</div>'+
+    (erro?'<p class="note" style="margin:0">'+esc(erro)+'</p>':'')+
+    botaoPrepararIncursaoHTML()+
+  '</div>';
+}
+function formacaoResumoHTML(){
+  var feridosF=G.esquadra.filter(ferido).length;
+  var impedidos=G.esquadra.filter(function(x){return x.rebelado||x.recusa}).length;
+  var conflitos=[];
+  for(var a=0;a<G.esquadra.length;a++)for(var b=a+1;b<G.esquadra.length;b++){
+    var r=relEntre(G.esquadra[a].id,G.esquadra[b].id);
+    if(r&&(r.affinity<=-25||r.trust<=-25))conflitos.push(G.esquadra[a].nome+" e "+G.esquadra[b].nome);
+  }
+  var erro=podePartir();
+  return '<div class="cmdsummary">'+
+    '<span><b>'+G.esquadra.length+'/4</b> vagas ocupadas</span>'+
+    '<span'+(feridosF?' class="al"':'')+'><b>'+feridosF+'</b> ferido(s) na formação</span>'+
+    (impedidos?'<span class="al"><b>'+impedidos+'</b> impedido(s) de lutar</span>':'')+
+    (conflitos.length?'<span class="al">Conflito grave entre '+esc(conflitos.join(", "))+'</span>':'')+
+    (erro?'<span class="al">'+esc(erro)+'</span>':'<span>Formação pronta para a incursão.</span>')+
+  '</div>';
+}
+function formacaoHTML(){
+  var slotsHtml="";
+  for(var i=0;i<4;i++){
+    var s=G.esquadra[i];
+    slotsHtml += s?slotCheiaHTML(s):slotVaziaHTML(i);
+  }
+  var candidatos=vivos().filter(function(x){return G.esquadra.indexOf(x)<0});
+  var pk=(SALAO.escalando!=null)?pickerHTML(candidatos):"";
+  return '<div class="cmdslots">'+slotsHtml+incursaoStatusHTML()+pk+'</div>'+formacaoResumoHTML();
+}
+
+/* ---------- 4. Intenção do Comandante ---------- */
+function previsaoIntencao(F){
+  var vs=vivos();
+  if(!F)return {semDirecao:true};
+  var ctx={nec:necessidades(),ocupacao:{}};
+  var elegiveis=0, aceitam=0, resistentes=0;
+  vs.forEach(function(x){
+    if(x.rebelado||x.recusa)return;
+    var candidatas=ATIVIDADES.filter(function(A){
+      return (F.ativs&&F.ativs.indexOf(A.id)>=0)||(F.cats&&F.cats.indexOf(A.cat)>=0);
+    });
+    var pode=candidatas.some(function(A){return evaluateActivity(x,A,ctx).blockers.length===0});
+    if(!pode)return;
+    elegiveis++;
+    if(x.ressentimento>=40||x.lealdade<=-30)resistentes++;
+    else if(x.lealdade>=20)aceitam++;
+  });
+  return {elegiveis:elegiveis, aceitam:aceitam, resistentes:resistentes,
+    incertos:Math.max(0,elegiveis-aceitam-resistentes)};
+}
+function intencaoComandanteHTML(){
+  var F=focoAtual(), P=previsaoIntencao(F);
+  var previsaoTxt = P.semDirecao ? "Sem direção nenhuma. Cada um decide sozinho o que fazer hoje."
+    : P.elegiveis===0 ? "Ninguém na Casa está livre para atender a isso hoje."
+    : (P.aceitam===0&&P.resistentes===0) ? P.elegiveis+" herói(s) podem considerar isso, mas nenhum tem vínculo forte o bastante para seguir por lealdade — vai depender do resto do dia."
+    : P.aceitam+" de "+P.elegiveis+" herói(s) devem seguir de bom grado."+
+      (P.resistentes?" "+P.resistentes+" pode(m) encarar isso como pressão.":"")+
+      (P.incertos?" "+P.incertos+" ainda está(ão) incerto(s).":"");
+  return '<div class="foco">'+
+    '<div class="fk">Intenção do Comandante</div>'+
+    '<div class="fv">'+esc(F?F.rot:"Não interferir")+'</div>'+
+    '<p class="fd">'+esc(F?F.desc:"Nenhuma direção. Cada um faz o que acha melhor.")+'</p>'+
+    '<div class="fb">'+FOCOS_DIA.map(function(o){
+      return '<button class="'+(G.foco===o.id?"on":"")+'" onclick="definirFoco(\''+o.id+'\')">'+esc(o.rot)+'</button>';
+    }).join("")+
+    '<button class="'+(!G.foco?"on":"")+'" onclick="naoInterferir()">Não interferir</button></div>'+
+    '<p class="note fn">'+esc(previsaoTxt)+'</p>'+
+    '<p class="note fn" style="margin-top:4px">Isto é um pedido, não uma ordem. Quem confia em você atende; quem não confia faz o que quiser.</p>'+
+  '</div>';
+}
+window.naoInterferir=function(){G.foco=null;telaCasa()};
+
+/* ---------- 5. Situação da Casa ---------- */
+function producaoPrevista(){
+  var sup=0, mat=0;
+  vivos().forEach(function(x){
+    if(!x.tarefa)return;
+    if(x.tarefa==="campos"||x.tarefa==="cais")sup+=rendimentoDe(x.tarefa)+(temBonus(x,x.tarefa)?1:0);
+    else if(x.tarefa==="mina"||x.tarefa==="tear")mat+=rendimentoDe(x.tarefa)+(temBonus(x,x.tarefa)?1:0);
+  });
+  return {sup:sup, mat:mat};
+}
+function alertasSituacao(){
+  var out=[];
+  var faltam=fimDoCiclo(G.dia)-G.dia;
+  if(ehIncursao())out.push("Hoje há incursão marcada.");
+  if(faltam===0)out.push("Hoje é a Prova do ciclo.");
+  else if(faltam===1)out.push("Amanhã é a Prova do Ciclo.");
+  var E=estadoEstoque();
+  if(E.id==="fome")out.push("A Casa está em fome — os suprimentos acabaram.");
+  else if(E.id==="escassez")out.push("Os suprimentos estão em escassez severa.");
+  else if(E.id==="racionamento")out.push("Os suprimentos não duram mais que "+Math.max(1,Math.floor(diasDeEstoque()))+" dia(s).");
+  var nFeridos=vivos().filter(ferido).length;
+  if(nFeridos>=2)out.push(nFeridos+" heróis precisam de tratamento.");
+  if(G.criseAtiva)out.push("Existe um grupo em "+ESTAGIOS[G.criseAtiva.stage].nome.toLowerCase()+" dentro da Casa.");
+  (G.obras||[]).forEach(function(o){
+    if(!o.pronta&&o.restam<=1){var I=INST_POR_ID[o.id];out.push((I?I.nome:o.id)+" está perto de concluir um projeto.");}
+  });
+  return out;
+}
+function alertasGraves(){
+  var out=[];
+  var E=estadoEstoque();
+  if(E.id==="fome")out.push("A Casa está em fome.");
+  else if(E.id==="escassez")out.push("Os suprimentos estão em escassez severa.");
+  var faltam=fimDoCiclo(G.dia)-G.dia;
+  if(faltam===0)out.push("Hoje é a Prova do ciclo.");
+  else if(faltam===1)out.push("Amanhã é a Prova do ciclo.");
+  if(G.criseAtiva&&G.criseAtiva.stage>=4)out.push("Há um movimento em "+ESTAGIOS[G.criseAtiva.stage].nome+" dentro da Casa.");
+  return out;
+}
+function situacaoDaCasaHTML(){
+  var prod=producaoPrevista(), cons=Math.round(consumoDiario()*10)/10;
+  var nFeridos=vivos().filter(ferido).length;
+  var tratamento=vivos().filter(function(x){return x.tarefa==="enfermaria"}).length;
+  var tensao=estadoTensao();
+  var obras=(G.obras||[]).filter(function(o){return !o.pronta});
+  var alertas=alertasSituacao();
+  var row=function(rot,val){return '<div class="sitrow"><span>'+esc(rot)+'</span><b>'+val+'</b></div>';};
+  return '<div class="panel sitp">'+
+    '<div class="stitle">Situação da Casa</div>'+
+    row("Produção prevista","+"+prod.sup+" suprimentos, +"+prod.mat+" materiais")+
+    row("Consumo previsto", cons+" suprimentos")+
+    row("Feridos", nFeridos)+
+    row("Em tratamento", tratamento)+
+    row("Tensão social", '<span style="color:'+tensao.cor+'">'+esc(tensao.rot)+'</span>')+
+    row("Projetos em andamento", obras.length? esc(obras.map(function(o){
+        var I=INST_POR_ID[o.id]; return (I?I.nome:o.id)+" ("+o.restam+"d)";
+      }).join(", ")) : "Nenhum")+
+    (alertas.length? '<div class="sitalerts">'+alertas.map(function(a){
+        return '<div class="alerta">⚠ '+esc(a)+'</div>';}).join("")+'</div>'
+      : '<p class="note" style="margin-top:8px">Nenhum alerta para amanhã.</p>')+
+  '</div>';
+}
+
+/* ---------- 6. A Casa Hoje ---------- */
+var CASA_FILTROS=[["todos","Todos"],["trabalhando","Trabalhando"],["treinando","Treinando"],
+  ["descansando","Descansando"],["socializando","Socializando"],["paralisados","Paralisados"]];
+function categoriaAtividade(x){
+  if(x.rebelado||x.recusa||(x.dailyIntent&&x.dailyIntent.activityId==="recusar"))return "paralisados";
+  var cat=x.dailyIntent&&x.dailyIntent.cat;
+  if(x.tarefa==="patio")return "treinando";
+  if(x.tarefa==="enfermaria")return "descansando";
+  if(cat==="social")return "socializando";
+  if(x.tarefa)return "trabalhando";
+  if(cat==="training")return "treinando";
+  return "descansando";
+}
+var RESULTADO_ESPERADO_CAT={work:"Deve render recursos para a Casa.",
+  training:"Deve evoluir um atributo de combate.", recovery:"Deve recuperar PV.",
+  social:"Deve fortalecer um laço na Casa.", personal:"Deve cuidar de si mesmo.",
+  avoidance:"Deve evitar algo que o incomoda.", political:"Não deve contribuir hoje."};
+function hojeCardHTML(x){
+  var emo=emoBadge(x);
+  var noCombate=G.esquadra.indexOf(x)>=0;
+  var paralisado=categoriaAtividade(x)==="paralisados";
+  var di=x.dailyIntent;
+  var sug=(G.sugestoes||[]).filter(function(s){return s.heroId===x.id&&di&&s.dia===di.dia})[0];
+  var sugTxt=null, sugCls="";
+  if(sug){
+    if(sug.status==="accepted"){sugTxt="Seguiu a sugestão do comandante.";sugCls="aceita";}
+    else if(sug.status==="reluctantly_accepted"){sugTxt="Seguiu a sugestão, a contragosto.";sugCls="aceita";}
+    else if(sug.status==="refused"){sugTxt="Recusou a sugestão do comandante.";sugCls="recusada";}
+    else if(sug.status==="pending"){sugTxt="Há uma sugestão pendente para hoje.";}
+  }
+  var ctxNow={nec:necessidades(),ocupacao:{}};
+  var semOpcoes=!paralisado&&ATIVIDADES.every(function(A){return evaluateActivity(x,A,ctxNow).blockers.length>0});
+  var cls = paralisado?"paralisado":noCombate?"combate":sugCls==="recusada"?"recusada":
+    semOpcoes?"impossivel":sugCls==="aceita"?"aceita":"espontanea";
+  var atividadeNome = di&&ATIV_POR_ID[di.activityId]?ATIV_POR_ID[di.activityId].nome:(x.tarefa?"Em atividade":"Sem atividade definida");
+  var local = x.tarefa?noLugar(x.tarefa):"Na Casa";
+  var motivo = di&&di.reasons&&di.reasons[0]?di.reasons[0].text:"Sem motivo registrado.";
+  var resultado = RESULTADO_ESPERADO_CAT[(di&&di.cat)||""]||"Incerto.";
+  var bonusProf = !!(x.tarefa&&temBonus(x,x.tarefa));
+  var afin=afinidadeDoDia(x,{});
+  return '<div class="hjcard '+cls+'">'+
+    '<div class="hjh">'+retrato(x)+
+      '<div style="min-width:0"><div class="hjn">'+esc(x.nome)+'</div>'+
+      '<div class="hjm">Nv. '+(x.level||1)+' · '+esc(x.prof)+'</div>'+
+      '<div class="hjm" style="color:'+emo.cor+'">'+esc(emo.nome)+'</div></div></div>'+
+    '<div class="hjrow"><span>Atividade</span><b>'+esc(atividadeNome)+'</b></div>'+
+    '<div class="hjrow"><span>Local</span><b>'+esc(local)+'</b></div>'+
+    '<div class="hjrow"><span>PV</span><b style="color:'+(ferido(x)?"var(--danger)":"var(--health)")+'">'+x.pv+'/'+x.pvMax+'</b></div>'+
+    '<div class="hjfrase">“'+esc(motivo)+'”</div>'+
+    '<div class="hjrow"><span>Resultado esperado</span><b>'+esc(resultado)+'</b></div>'+
+    '<div class="hjrow"><span>Bônus profissional</span><b>'+(bonusProf?"Sim":"Não")+'</b></div>'+
+    '<div class="hjrow"><span>Bônus de equipamento</span><b>'+(afin.valor>0?"+"+afin.valor+" ("+esc(afin.linhas.map(function(l){return l.nome;}).join(", "))+")":"Nenhum")+'</b></div>'+
+    (sugTxt?'<div class="hjtag" style="color:'+(sugCls==="recusada"?"var(--danger)":"var(--health)")+'">'+esc(sugTxt)+'</div>'
+      :'<div class="hjtag" style="color:var(--text-faint)">Escolha espontânea.</div>')+
+    (noCombate?'<div class="hjtag" style="color:var(--gold)">Escalado para a incursão.</div>':'')+
+    (paralisado?'<div class="hjtag" style="color:var(--crimson-light)">Recusa-se a servir hoje.</div>':'')+
+    (semOpcoes?'<div class="hjtag" style="color:#d08050">Sem atividade possível agora, por falta de recurso ou vaga.</div>':'')+
+    '<div class="hjacts"><button class="mini" onclick="verFicha('+x.id+')">Ver ficha</button>'+
+      '<button class="mini" onclick="conversarCom('+x.id+')">Conversar</button></div>'+
+  '</div>';
+}
+function casaHojeHTML(){
+  var vs=vivos();
+  var filtros='<div class="filtros">'+CASA_FILTROS.map(function(f){
+    return '<button class="cba'+(SALAO.filtroCasa===f[0]?" on":"")+'" onclick="setFiltroCasa(\''+f[0]+'\')">'+f[1]+'</button>';
+  }).join("")+'</div>';
+  var lista=vs.filter(function(x){return SALAO.filtroCasa==="todos"||categoriaAtividade(x)===SALAO.filtroCasa;});
+  var cards=lista.length?lista.map(hojeCardHTML).join(""):'<div class="vazio"><div class="t">Ninguém aqui com esse filtro.</div></div>';
+  return '<h2>A Casa Hoje ('+vs.length+')</h2>'+filtros+'<div class="hjgrid">'+cards+'</div>';
+}
+window.setFiltroCasa=function(f){SALAO.filtroCasa=f;telaCasa()};
+window.conversarCom=function(id){aba("conselho");mHeroi(id)};
+
+/* ---------- 7. Crônica da Casa ---------- */
+var CRONICA_FILTROS=[["todos","Todos"],["hoje","Hoje"],["ontem","Ontem"],["combate","Combate"],
+  ["relacoes","Relações"],["emocoes","Emoções"],["recursos","Recursos"]];
+function classificaCronica(txt){
+  var t=txt.toLowerCase();
+  var cat="neutro", cor="var(--text-faint)";
+  if(/incurs[aã]o|combate|torre|batalha|abateu|caiu em campo|subiu com|voltou da torre/.test(t)){cat="combate";cor="var(--danger)";}
+  else if(/recuperou|enfermaria|\bpv\b/.test(t)){cat="recursos";cor="var(--health)";}
+  else if(/suprimento|material|mantiment|economia|colheu|extraiu|trabalhou|obra|ofic/.test(t)){cat="recursos";cor="var(--gold)";}
+  else if(/rela[cç][aã]o|afinidade|respeito|confian[cç]a|apoi|movimento|treinaram juntos|assumiu o lugar/.test(t)){cat="relacoes";cor="var(--text-muted)";}
+  else if(/ressentid|frustrad|furios|orgulh|desesperad|aliviad|grato|culpad|solit[aá]rio|sentiu|emo[cç]/.test(t)){cat="emocoes";cor="var(--text-muted)";}
+  if(/n[aã]o fez o que foi cobrado|recus|largou|conflito|racha|perigo/.test(t))cor="var(--danger)";
+  return {cat:cat, cor:cor};
+}
+function heroiDoTexto(txt){
+  var todos=(G.casa||[]).concat(G.cemiterio||[]);
+  for(var i=0;i<todos.length;i++)if(txt.lastIndexOf(todos[i].nome,0)===0)return todos[i];
+  return null;
+}
+function itensCronica(){
+  var hoje=(G.escolhasDoDia||[]).slice().reverse().map(function(t){return {txt:t,quando:"hoje"};});
+  var ontem=(G.rel||[]).map(function(t){return {txt:t,quando:"ontem"};});
+  return hoje.concat(ontem);
+}
+function cronicaCasaHTML(){
+  var itens=itensCronica().map(function(it){
+    var c=classificaCronica(it.txt);
+    return {txt:it.txt, quando:it.quando, cat:c.cat, cor:c.cor};
+  });
+  var filtro=SALAO.filtroCronica;
+  var filtrados=itens.filter(function(it){return filtro==="todos"||filtro===it.quando||filtro===it.cat;});
+  var LIMITE=8;
+  var mostrar=SALAO.cronicaTudo?filtrados:filtrados.slice(0,LIMITE);
+  var filtros='<div class="filtros">'+CRONICA_FILTROS.map(function(f){
+    return '<button class="cba'+(SALAO.filtroCronica===f[0]?" on":"")+'" onclick="setFiltroCronica(\''+f[0]+'\')">'+f[1]+'</button>';
+  }).join("")+'</div>';
+  var lista=mostrar.length?mostrar.map(function(it){
+    return '<div class="critem" style="border-left-color:'+it.cor+'">'+
+      '<span class="critag">'+(it.quando==="hoje"?"Hoje":"Ontem")+'</span>'+esc(it.txt)+'</div>';
+  }).join(""):'<p class="note">Nada para mostrar com esse filtro ainda.</p>';
+  return '<h2>Crônica da Casa</h2>'+filtros+'<div class="cronica-list">'+lista+'</div>'+
+    (filtrados.length>LIMITE?'<button class="mini" style="margin-top:10px" onclick="toggleCronicaTudo()">'+
+      (SALAO.cronicaTudo?"Ver menos":"Ver tudo")+'</button>':'');
+}
+window.setFiltroCronica=function(f){SALAO.filtroCronica=f;telaCasa()};
+window.toggleCronicaTudo=function(){SALAO.cronicaTudo=!SALAO.cronicaTudo;telaCasa()};
+
+/* ---------- 8. barra de ações fixa ---------- */
+function barraFixaHTML(){
+  return '<div class="cmdbar">'+
+    '<button onclick="aba(\'torre\')">Ir à Torre</button>'+
+    '<button class="prim" onclick="passarDia()">Passar o dia'+pena()+'</button>'+
+    botaoPrepararIncursaoHTML()+
+  '</div>';
 }
 
 /* ============ LUGARES: observar, não distribuir ============ */
@@ -5800,7 +6251,7 @@ function escolheCrescimento(x){
     "Fôlego","O corpo aguentou mais do que ele esperava.",function(){x.pvMax+=3;x.pv+=3});
   if(!limiteAtingido(x,"range")&&TP.range>=40&&x.level>=5)add("range",
     14+TP.range*0.3,"Alcance","Levou meses para aprender a acertar de longe.",
-    function(){x.alcance++;TP.range=0});
+    function(){x.alcance++;x.atqDist=x.alcance;TP.range=0});
   if(x.habilidade&&(x.habilidade.masteryLevel||1)<(x.caps||capsDe(x.estrelas)).ability)
     add("ability",15+(x.habilidade.useCount||0)*2,"Domínio",
       "Usou tanto a técnica que ela mudou nas mãos dele.",function(){
@@ -6012,18 +6463,9 @@ function pesoDoFoco(x,A){
   return Math.max(0,Math.min(14, 6+Math.round(l/12)-Math.round(r/14)));
 }
 window.definirFoco=function(id){ G.foco=(G.foco===id?null:id)||null; telaCasa() };
-function focoHTML(){
-  var F=focoAtual();
-  return '<div class="foco">'+
-    '<div class="fk">Foco do dia</div>'+
-    '<div class="fv">'+esc(F?F.rot:"Nenhum")+'</div>'+
-    '<p class="fd">'+esc(F?F.desc:"Sem direção nenhuma. Cada um faz o que acha melhor.")+'</p>'+
-    '<div class="fb">'+FOCOS_DIA.map(function(o){
-      return '<button class="'+(G.foco===o.id?"on":"")+'" onclick="definirFoco(\''+o.id+'\')">'+esc(o.rot)+'</button>';
-    }).join("")+'</div>'+
-    '<p class="note fn">Isto é um pedido, não uma ordem. Quem confia em você atende; quem não confia faz o que quiser.</p>'+
-  '</div>';
-}
+/* a renderização da Intenção do Comandante mora agora em
+   intencaoComandanteHTML() (Salão de Comando), com previsão de adesão;
+   G.foco/focoAtual()/pesoDoFoco() continuam os mesmos, intocados. */
 
 function chooseDailyActivity(x,ctx){
   var avals=ATIVIDADES.map(function(A){return evaluateActivity(x,A,ctx)})
@@ -6583,7 +7025,7 @@ function fechaCompromisso(x,itensUsadosHoje){
     var ganho=null;
     if(pg==="attack"&&!limiteAtingido(x,"attack")){x.ataque++;ganho="+1 de Ataque"}
     else if(pg==="defense"&&!limiteAtingido(x,"defense")){x.defesa++;ganho="+1 de Defesa"}
-    else if(pg==="range"&&!limiteAtingido(x,"range")){x.alcance++;ganho="+1 de Alcance"}
+    else if(pg==="range"&&!limiteAtingido(x,"range")){x.alcance++;x.atqDist=x.alcance;ganho="+1 de Alcance"}
     else if(pg==="ability"&&x.habilidade){
       var H=x.habilidade; H.masteryLevel=(H.masteryLevel||1)+1;
       if(H.masteryLevel%2===0)H.custo=Math.max(1,H.custo-1);
@@ -6784,7 +7226,11 @@ window.pega=function(id){
 };
 window.tira=function(id){var h=G.casa.find(function(x){return x.id===id}),i=G.esquadra.indexOf(h);if(i>=0)G.esquadra.splice(i,1);telaCasa()};
 window.convocar=function(){if(G.sup<10)return;G.sup-=10;G.casa.push(geraHeroi(G.andar));telaCasa()};
-window.passarDia=function(){G.rel=resolveDia();G.dia++;FICHA=null;telaCasa()};
+window.passarDia=function(){
+  var av=alertasGraves();
+  if(av.length&&!window.confirm("Antes de passar o dia:\n\n- "+av.join("\n- ")+"\n\nPassar o dia mesmo assim?"))return;
+  G.rel=resolveDia();G.dia++;FICHA=null;telaCasa();
+};
 window.irBatalha=function(){iniciaCombate(ehProva())};
 
 var ARMAS_IMG={
@@ -7057,22 +7503,7 @@ var ITENS_LISTA=[
   descricao:"Placas presas onde o corpo recebe os primeiros golpes.",
   imagem:"AR010",atributos:{ataque:2,defesa:2},poder:null,habilidadeEspecial:null,
   afinidadeProfissional:null,requisitos:{possuiAuraDeGuerra:true},
-  custo:{materiais:6,suprimentos:1,essencia:25}},
- {id:"amuleto",nome:"Amuleto de osso",tipo:"equipamento",slot:"anel",categoria:"talisma",
-  classeItem:"comum",raridade:"comum",duasMaos:false,
-  descricao:"Osso de quem não voltou. Dizem que ainda quer descer.",
-  imagem:null,atributos:{pvMaximo:6},poder:null,
-  custo:{materiais:1,suprimentos:0,essencia:30}},
- {id:"bussola",nome:"Bússola torta",tipo:"equipamento",slot:"anel",categoria:"talisma",
-  classeItem:"comum",raridade:"comum",duasMaos:false,
-  descricao:"Nunca aponta o norte, mas aponta a saída.",
-  imagem:null,atributos:{movimento:1},poder:null,
-  custo:{materiais:3,suprimentos:0,essencia:50}},
- {id:"selo",nome:"Selo da Voz",tipo:"equipamento",slot:"anel",categoria:"talisma",
-  classeItem:"comum",raridade:"raro",duasMaos:false,
-  descricao:"Ninguém sabe ler o que está gravado. Funciona assim mesmo.",
-  imagem:null,atributos:{ataque:1,defesa:1,alcance:1},poder:null,
-  custo:{materiais:5,suprimentos:0,essencia:120}}
+  custo:{materiais:6,suprimentos:1,essencia:25}}
 ];
 
 /* ---- catálogo: anéis comuns AN001–AN010
